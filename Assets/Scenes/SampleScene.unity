@@ -212,7 +212,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.5, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -304,7 +304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -383,10 +383,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.37442756, y: -0, z: -0, w: 0.9272562}
-  m_LocalPosition: {x: 0, y: 5.76, z: -7.18}
+  m_LocalPosition: {x: -1.08, y: 5.09, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1215944901}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 43.978, y: 0, z: 0}
 --- !u!1 &1215944897
@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 1215944899}
   - component: {fileID: 1215944898}
   - component: {fileID: 1215944902}
+  - component: {fileID: 1215944903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -480,9 +481,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.76514244, y: 3, z: 1.6709607}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1215944902
 Rigidbody:
@@ -498,5 +500,18 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1215944903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215944897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f94e09e359c8548a825a45c9b08fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
