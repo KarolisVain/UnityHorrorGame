@@ -6,11 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [Min(0f)]
     [SerializeField]
-    private float moveSpeed = 2f;
+    private float moveSpeed = 8f;
 
     private Rigidbody rb;
 
     private Vector3 movementAxis;
+    private Vector3 rotationAxis;
 
     // Start is called before the first frame update
     private void Awake()
@@ -41,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
 
         var currentPos = rb.position;
         var newPos = currentPos + posMovement;
-
-        Debug.Log(posMovement);
 
         rb.MovePosition(newPos);
     }
