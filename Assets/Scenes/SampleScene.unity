@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   lookSensitivity: 5
-  maxYangle: 80
+  maxYangle: 60
   camera: {fileID: 963194225}
 --- !u!33 &1695755731
 MeshFilter:

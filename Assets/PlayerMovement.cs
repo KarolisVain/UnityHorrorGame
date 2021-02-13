@@ -14,7 +14,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Min(0f)]
     [SerializeField]
-    private float maxYangle = 80f;
+    private float maxYangle = 60f;
+
+    [Min(0f)]
+    [SerializeField]
+    private float maxZangle = 30f;
 
     [SerializeField]
     private GameObject camera;
@@ -52,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
     {
         rotationAxis.x += Input.GetAxis("Mouse X") * lookSensitivity;
         rotationAxis.y -= Input.GetAxis("Mouse Y") * lookSensitivity;
+
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
+        {
+            rotationAxis.z -= Input.GetAxis("Tilt") * lookSensitivity;
+        }
+        else
+        {
+            rotationAxis.z = 0;
+        }
     }
 
     private void UpdatePosition()
@@ -76,7 +89,8 @@ public class PlayerMovement : MonoBehaviour
         var cameraTransform = camera.transform;
 
         rotationAxis.y = Mathf.Clamp(rotationAxis.y, -maxYangle, maxYangle);
+        rotationAxis.z = Mathf.Clamp(rotationAxis.z, -maxZangle, maxZangle);
 
-        cameraTransform.rotation = Quaternion.Euler(rotationAxis.y, rotationAxis.x, 0);
+        cameraTransform.rotation = Quaternion.Euler(rotationAxis.y, rotationAxis.x, rotationAxis.z);
     }
 }
