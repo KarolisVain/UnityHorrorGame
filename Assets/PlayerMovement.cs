@@ -18,22 +18,18 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private GameObject camera;
-    private Transform cameraT;
 
     private Rigidbody rb;
 
     private Vector3 movementAxis;
     private Vector3 rotationAxis;
 
-    // Start is called before the first frame update
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         camera = gameObject.transform.Find("PlayerCamera").gameObject;
-        cameraT = camera.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         UpdateMovementAxis();
@@ -62,24 +58,20 @@ public class PlayerMovement : MonoBehaviour
     {
         var posMovement = movementAxis * moveSpeed * Time.deltaTime;
 
-        var currentPos = rb.position;
-        var newPos = currentPos + posMovement;
-
-        rb.MovePosition(newPos);
+        transform.position += transform.TransformDirection(posMovement);
     }
 
     private void UpdateRotation()
     {
-        // Player Rotation Code
+        // Player Rotation Part
 
         var playerTransform = gameObject.transform;
-        var rotationMovement = movementAxis.x * Time.deltaTime;
 
         rotationAxis.x = Mathf.Repeat(rotationAxis.x, 360);
 
         playerTransform.rotation = Quaternion.Euler(0, rotationAxis.x, 0);
 
-        // Camera Rotation Code
+        // Camera Rotation Part
 
         var cameraTransform = camera.transform;
 
