@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Min(0f)]
     [SerializeField]
-    private float maxYangle = 60f;
+    private float maxYangle = 80f;
 
     [Min(0f)]
     [SerializeField]
